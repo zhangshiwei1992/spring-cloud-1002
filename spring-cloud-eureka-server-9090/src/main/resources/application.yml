@@ -1,0 +1,14 @@
+# 应用名称
+spring:
+  application:
+    name: spring-cloud-eureka-server-9090
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka
+
+

@@ -1,0 +1,25 @@
+spring:
+  application:
+    # 应用名称
+    name: spring-cloud-config-server-9091
+
+  # spring cloud config
+  cloud:
+    config:
+      server:
+        # git 地址,用户名,密码
+        git:
+          uri: https://github.com/zhangshiwei1992/spring-cloud-config-file.git
+          username: zhangshiwei1992
+          password: ec35608321
+
+server:
+  port: 9091
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-cloud-eureka-server-9090" />
+        <module name="spring-cloud-config-server-9091" />
+        <module name="userserviceapi" />
+        <module name="userservierapi" />
+        <module name="user-provider" />
+        <module name="order-service-provider" />
+        <module name="user-service-provider" />
+        <module name="orderserviceapi" />
+        <module name="springcloudorderservice8082" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="orderapi" target="1.7" />
+      <module name="orderservierapi" target="1.7" />
+      <module name="springcloudorderservier8082" target="1.7" />
+      <module name="springclouduserservier8081" target="1.7" />
+      <module name="user-provider" target="1.8" />
+      <module name="user-servier-provider" target="1.8" />
+      <module name="userapi" target="1.7" />
+      <module name="userservierapi" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

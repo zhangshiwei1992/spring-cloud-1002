@@ -1,0 +1,20 @@
+spring:
+  application:
+    # 应用名称,
+    # 注意:
+    # 根据spring.cloud.config.discovery.service-id找到配置中心后,
+    # 会根据此项目名称去配置中心找对应的配置文件: 如order-service.yml
+    name: user-service
+
+# 应用服务 WEB 访问端口
+server:
+  port: 8081
+
+# 开启: 提供refresh端点,可以使用接口主动刷新配置中心的配置文件内容
+management:
+  endpoints:
+    # 开启actuator
+    enabled-by-default: true
+    web:
+      exposure:
+        include: refresh
