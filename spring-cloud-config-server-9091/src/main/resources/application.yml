@@ -13,6 +13,20 @@ spring:
           username: zhangshiwei1992
           password: ec35608321
 
+    # 消息总线配置
+  #    bus:
+  #      enabled: true
+  #      trace:
+  #        enabled: true
+  #      refresh:
+  #        enabled: true
+  # kafka 配置消息总线使用
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092
+#    consumer:
+#      # 消息分组编号
+#      group-id: config-server
+
 server:
   port: 9091
 

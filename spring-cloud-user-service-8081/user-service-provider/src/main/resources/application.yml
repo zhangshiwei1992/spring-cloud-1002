@@ -6,6 +6,20 @@ spring:
     # 会根据此项目名称去配置中心找对应的配置文件: 如order-service.yml
     name: user-service
 
+    # 消息总线配置
+  #    bus:
+  #      enabled: true
+  #      trace:
+  #        enabled: true
+  #      refresh:
+  #        enabled: true
+  # kafka 配置消息总线使用
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092
+#    consumer:
+#      # 消息分组编号
+#      group-id: config-server
+
 # 应用服务 WEB 访问端口
 server:
   port: 8081

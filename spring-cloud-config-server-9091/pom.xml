@@ -50,6 +50,12 @@
 <!--            <artifactId>spring-cloud-starter-bus-amqp</artifactId>-->
 <!--        </dependency>-->
 
+        <!-- monitor监听功能,配置消息总线bus同步刷新使用 -->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-config-monitor</artifactId>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

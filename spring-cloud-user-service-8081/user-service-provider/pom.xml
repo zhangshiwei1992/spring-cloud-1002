@@ -57,6 +57,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
+
+
+        <!--消息总线 - kafka-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-bus-kafka</artifactId>-->
+        <!--        </dependency>-->
+
+        <!-- monitor监听功能,配置消息总线bus同步刷新使用 -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-config-monitor</artifactId>-->
+        <!--        </dependency>-->
     </dependencies>
 
 </project>
