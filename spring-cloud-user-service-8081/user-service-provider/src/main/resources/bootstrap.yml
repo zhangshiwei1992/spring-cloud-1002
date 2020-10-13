@@ -1,5 +1,10 @@
 # 启动配置文件,优先于application.yml加载
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka
+
 spring:
   # spring cloud config
   cloud:
@@ -7,10 +12,6 @@ spring:
       discovery:
         # 开启spring cloud config应用
         enabled: true
-        # 从eureka配置中中心查询配置中心的key,即配置中心注册到注册中心的名称
+        # 从eureka注册中心查询配置中心的key,即配置中心注册到注册中心的名称
         service-id: spring-cloud-config-server-9091
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:9090/eureka
