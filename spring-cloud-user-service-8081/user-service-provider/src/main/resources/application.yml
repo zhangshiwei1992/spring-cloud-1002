@@ -32,3 +32,8 @@ management:
     web:
       exposure:
         include: refresh
+
+# feign使用熔断机制保护
+feign:
+  hystrix:
+    enabled: true
