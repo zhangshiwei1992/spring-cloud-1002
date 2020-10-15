@@ -24,13 +24,14 @@ spring:
 server:
   port: 8081
 
-# 开启: 提供refresh端点,可以使用接口主动刷新配置中心的配置文件内容
+# actuator配置
 management:
   endpoints:
     # 开启actuator
     enabled-by-default: true
     web:
       exposure:
+        # 开启: 提供refresh端点,可以使用接口主动刷新配置中心的配置文件内容
         # 开启refresh刷新配置中心的配置信息, 开启hystrix监控面板
         include: refresh,hystrix.stream
 

@@ -11,5 +11,4 @@ public class SpringCloudHystrixDashboard9092Application {
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudHystrixDashboard9092Application.class, args);
     }
-
 }

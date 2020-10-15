@@ -37,5 +37,4 @@ public class HystrixOpenFeignController {
         System.out.println("num是奇数 - 访问远程 - 订单信息服务器8082 - 如果调不通就走断路器");
         return orderServiceFeignClient.findAllList();
     }
-
 }

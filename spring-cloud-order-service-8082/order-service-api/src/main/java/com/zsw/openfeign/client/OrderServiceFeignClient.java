@@ -43,5 +43,4 @@ public interface OrderServiceFeignClient extends OrderService {
             return -1;
         }
     }
-
 }
