@@ -1,0 +1,16 @@
+spring:
+  application:
+    # 应用名称,
+    name: hystrix-dashboard-9092
+
+
+# 应用服务 WEB 访问端口
+server:
+  port: 9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka
+
+

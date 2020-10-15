@@ -31,7 +31,8 @@ management:
     enabled-by-default: true
     web:
       exposure:
-        include: refresh
+        # 开启refresh刷新配置中心的配置信息, 开启hystrix监控面板
+        include: refresh,hystrix.stream
 
 # feign使用熔断机制保护
 feign:
