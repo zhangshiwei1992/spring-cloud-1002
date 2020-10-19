@@ -1,0 +1,55 @@
+spring:
+  application:
+    # 应用名称
+    name: spring-cloud-gateway-9093
+  cloud:
+    gateway:
+      # 路由
+      routes:
+        # 断言
+        - id: config_route
+          predicates:
+            - Path=/gateway/**
+          filters:
+            - StripPrefix=1
+          uri: http://127.0.0.1:8082/getOrder
+
+        # gateway配合注册中心实现负载均衡
+        - id: lb_route
+          predicates:
+            - Path=/lb/**
+          filters:
+            - StripPrefix=1
+          uri: lb://order-service
+
+
+        # 基于redis实现 令牌桶限流
+        - id: ratelimiter_router
+          predicates:
+            - Path=/ratelimiter/**
+          filters:
+            - StripPrefix=1
+            - name: RequestRateLimiter
+              args:
+                deny-empty-key: true
+                keyResoler: '#{@ipAddressKeyResolver}'
+                redis-rate-limiter.replenishRate: 1 # 令牌生成速度: 每秒钟生成1个
+                redis-rate-limiter.burstCapacity: 2 # 令牌桶容量
+          uri: lb://order-service
+
+      # gateway配合注册中心实现负载均衡,发现请求地址,从eureka注册中心定位
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+server:
+  port: 9093
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9090/eureka
