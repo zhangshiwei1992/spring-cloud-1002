@@ -42,14 +42,22 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+
   redis:
     host: 127.0.0.1
     port: 6379
+
 server:
   port: 9093
-
 
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:9090/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
