@@ -37,6 +37,24 @@ spring:
                 redis-rate-limiter.burstCapacity: 2 # 令牌桶容量
           uri: lb://order-service
 
+        # 校验请求信息 cookie
+        - id: cookie_router
+          predicates:
+            - Path=/cookie/**
+            - Cookie=name,mic # 要求请求信息的cookie必须有name,且name的值必须为mic
+          filters:
+            - StripPrefix=1
+          uri: lb://order-service
+
+        # 自定义断言,校验用户请求是否携带固定参数,根据其值校验登录权限
+        - id: zsw_router
+          predicates:
+            - Path=/zswRoute/**
+            - ZswAuth=sso_user_account # 要求请求信息的cookie必须有sso_user_account,再根据其值查询是否授权登录
+          filters:
+            - StripPrefix=1
+          uri: lb://order-service
+
       # gateway配合注册中心实现负载均衡,发现请求地址,从eureka注册中心定位
       discovery:
         locator:

@@ -29,6 +29,7 @@ public class ZswRedisRouteDefinitionRepository implements RouteDefinitionReposit
     private RedisTemplate<String, String> redisTemplate;
 
     private final static String           GATEWAY_ROUTE_REDIS_KEY = "GATEWAY_ROUTE_REDIS_KEY";
+
     public final static SimpleDateFormat  simpleDateFormat        = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /**
