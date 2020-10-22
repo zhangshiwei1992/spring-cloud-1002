@@ -14,9 +14,10 @@
   <modules>
     <module>spring-cloud-config-server-9091</module>
     <module>spring-cloud-eureka-server-9090</module>
-    <module>spring-cloud-user-service-8081</module>
-    <module>spring-cloud-order-service-8082</module>
-      <module>common</module>
+    <module>spring-cloud-user-8081</module>
+    <module>spring-cloud-order-8082</module>
+    <module>common</module>
+    <module>spring-cloud-goods-8083</module>
   </modules>
 
   <properties>
