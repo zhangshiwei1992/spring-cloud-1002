@@ -2,12 +2,9 @@ package com.zsw.api;
 
 import java.util.Locale;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 排序枚举类
  */
-@Slf4j
 public enum Direction {
     /**
      * 升序

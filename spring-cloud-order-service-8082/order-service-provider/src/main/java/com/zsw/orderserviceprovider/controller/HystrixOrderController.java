@@ -4,12 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.zsw.api.Result;
-import com.zsw.orderserviceprovider.dto.OrderInfoDto;
 
 /**
  * TestConfigController
@@ -17,9 +13,8 @@ import com.zsw.orderserviceprovider.dto.OrderInfoDto;
  * @author zhangshiwei
  * @since 2020年10月10日 下午10:25:45
  */
-@RequestMapping("/order")
 @RestController
-public class OrderController {
+public class HystrixOrderController {
 
     public final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -27,18 +22,27 @@ public class OrderController {
     private String                       port;
 
     @RequestMapping("/orders")
-    public Result<String> orders(@RequestBody OrderInfoDto orderInfoDto) {
-        Result<String> result = new Result<>();
+    public String orders() {
         System.out.println(port + " OrderController orders , 请求时间: " + simpleDateFormat.format(new Date()));
-        result.setValue("orders , 端口: " + port);
+        return "orders , 端口: " + port;
+    }
 
+    @RequestMapping("/getOrder")
+    public String getOrder() {
+        System.out.println("OrderController getOrder , 请求时间: " + simpleDateFormat.format(new Date()));
+        return "orders-100个";
+    }
+
+    @RequestMapping("/getOrderTimeOut")
+    public String getOrderTimeOut() {
+        System.out.println("OrderController getOrderTimeOut , 请求时间: " + simpleDateFormat.format(new Date()));
         try {
-            throw new Exception("异常");
-        } catch (Exception e) {
+            System.out.println("OrderController getOrderTimeOut 开始沉睡5秒 , 请求时间: " + simpleDateFormat.format(new Date()));
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        return result;
+        return "orders-100个";
     }
 
 }

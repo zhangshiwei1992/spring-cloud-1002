@@ -6,6 +6,30 @@ spring:
   application:
     name: order-service
 
+  main:
+    banner-mode: log
+  profiles:
+    active: main, ${DEPLOY_ENV}
+  datasource:
+    url: jdbc:mysql://rm-2ze3qg1crdkv9l4ts4o.mysql.rds.aliyuncs.com:3306/zulin-dev?autoReconnect=true&useUnienabledcode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: zulin
+    password: Hexia8866
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+#mybatis:
+#  mapper-locations: classpath:mybatis/mapper/**/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    local-cache-scope: statement
+#    cache-enabled: false
+#  mapper-scanner:
+#    base-package: com.zsw.orderserviceprovider.mybatis
+#  table-config:
+#    table-name-style: SNAKE_CASE
+
 server:
   port: 8082
 
