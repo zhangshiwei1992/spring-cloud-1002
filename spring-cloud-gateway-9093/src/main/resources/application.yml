@@ -22,6 +22,14 @@ spring:
             - StripPrefix=1
           uri: lb://order-service
 
+        # gateway配合注册中心实现负载均衡
+        - id: user_service_loadbalancer_route
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+          uri: user://user-service
+
 
         # 基于redis实现 令牌桶限流
         - id: ratelimiter_router
@@ -55,6 +63,14 @@ spring:
             - StripPrefix=1
           uri: lb://order-service
 
+        # 自定义断言,校验用户请求是否携带固定参数,根据其值校验登录权限
+        - id: user_service_router
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
+          uri: user://user-service
+
       # gateway配合注册中心实现负载均衡,发现请求地址,从eureka注册中心定位
       discovery:
         locator:
@@ -64,6 +80,15 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+
+  # sleuth链路追踪设置
+  sleuth:
+    sampler:
+      probability: 1.0 # 采样比例: 1.0表示全部,默认0.1即10%
+  # 启动的zipkin服务地址
+#  zipkin:
+#    base-uri: http://127.0.0.1:9411/
+
 
 server:
   port: 9093
@@ -79,3 +104,8 @@ management:
     web:
       exposure:
         include: "*"
+
+logging:
+  level:
+    #    org.springframework.cloud.sleuth: debug
+    root: debug
